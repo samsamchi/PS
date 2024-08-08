@@ -1,4 +1,4 @@
-# Programação 3 (Projetos de Software)
+# Projetos de Software
 
 Funcionalidades do projeto:
 - 
