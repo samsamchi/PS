@@ -1,0 +1,6 @@
+4169,Samuel Oliveira,21 anos,M,Alergia
+5255,Juliana Moreira,23 anos,F,Anemia
+7132,Ricardo Santana,25 anos,M,Diabetes
+3858,Saman Silvad,24 anos,F,Não possuo observações médicas.
+1119,Julio,Alain,M,Não possuo observações médicas.
+2006,Arthur Pereira,24 anos,M,N�o possuo observa��es m�dicas.
