@@ -1,0 +1,4 @@
+1631,Henrique Espinoza,39 anos,M,Tendinite.
+7376,Maria Calanzans,46 anos,F,Hipertensão.
+1964,Carlos Almeida,55 anos,M,Não possuo observações médicas.
+5727,Raniel Ferreira,20 anos,M,Não possuo observações médicas.

@@ -1,0 +1,4 @@
+6020,Pedro Esperidião,50 anos,M,Hipoglicemia.
+7227,Pedro Machado,58 anos,M,Artrite.
+7363,Maria Tavares,62 anos,F,Não possuo observações médicas.
+9728,Edna Matos,64 anos,F,Osteoporose.

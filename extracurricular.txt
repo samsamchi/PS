@@ -1,0 +1,4 @@
+Funcionário(a): 6020 | Atividade: Xadrez
+Horário da atividade: 15:30-16:30
+Funcionário(a): 6020 | Atividade: Futebol
+Horário da atividade: 10:30-11:30

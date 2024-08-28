@@ -1,0 +1,6 @@
+9384,Cicera Oliveira,48 anos,F,Hipertensão.
+9227,Gabriela Pereira,30 anos,F,Não possuo observações médicas.
+5854,Lucas Lima,35 anos,M,Não possuo observações médicas.
+7083,Mateus Barbosa,36 anos,M,Asma.
+3970,Augusto Okamoto,40 anos,M,Dermatite.
+5709,Diogo Tavares,40 anos,M,Não possuo observações médicas.
