@@ -187,7 +187,7 @@ class SAS:
                 try: #tratamento de exceção para atividades dos alunos
                     with open(arquivo_atividades, 'a') as f:
                         f.write(f"Aluno(a): {matricula} | Atividade inscrita: {atividade}\n\n")
-                    messagebox.showinfo("Frequência cadastrada com sucesso!")
+                    messagebox.showinfo("Atividade cadastrada com sucesso!")
                 except OSError:
                     messagebox.showwarning("Erro", f"Não foi possível salvar as informações nesse arquivo, verifique se existe no diretório!")
 
@@ -384,7 +384,7 @@ class SAS:
             try: #tratamento de exceção para salvar as informaçoes da disciplinas e horario das aulas ministradas pelo professor
                 with open(arquivo_aulas, 'a') as f:
                     f.write(f"Funcionário(a): {matricula} | Atividade: {atvextra}\nHorário da atividade: {horario}\n")
-                messagebox.showinfo("Aula cadastrada com sucesso!")
+                messagebox.showinfo("Atividade cadastrada com sucesso!")
             except OSError:
                 messagebox.showwarning("Erro", f"Não foi possível salvar as informações nesse arquivo, verifique se existe no diretório!")
 
