@@ -1,2 +1,6 @@
 Professor(a): 1631 | Disciplina: Sistemas Digitais
 Dia da Avaliação: 09/12/2024 | Horário da Avaliação: 08:00-09:30
+
+Professor(a): 1964 | Disciplina: Geometria Analítica
+Dia da Avaliação: 12/02/2025 | Horário da Avaliação: 10:30-11:30
+

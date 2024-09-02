@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import os
+import time
 import random
 
 class SAS:
@@ -9,8 +10,6 @@ class SAS:
         self.root.title("School Administration System")
 
         self.pasta_dados = "c:/Users/cicer/Downloads/ps3/ps3"
-        #if not os.path.exists(self.pasta_dados):
-            #os.makedirs(self.pasta_dados)
 
         self.check_directory(self.pasta_dados)
 
@@ -108,21 +107,85 @@ class SAS:
                 messagebox.showwarning("Erro", "Nenhum arquivo txt encontrado.")
 
         tk.Button(self.root, text="Buscar", command=buscar_matricula).pack(pady=10)
-        tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=10)
+
+        if tipo == 'aluno':
+            tk.Button(self.root, text="Voltar", command=self.menu_aluno).pack(pady=10)
+        elif tipo == 'professor':
+             tk.Button(self.root, text="Voltar", command=self.menu_professor).pack(pady=10)
+        elif tipo == 'responsavel':
+             tk.Button(self.root, text="Voltar", command=self.menu_responsavel).pack(pady=10)
+        elif tipo == 'funcionario':
+             tk.Button(self.root, text="Voltar", command=self.menu_funcionario).pack(pady=10)
 
     def acoes_responsavel(self, matricula):
             self.clear_window()
-            tk.Button(self.root, text="Ver Frequência do aluno(a)", command=lambda: self.ver_frequencia(matricula)).pack(pady=20)
-            tk.Button(self.root, text="Ver Notas do aluno(a)", command=lambda: self.ver_notas(matricula)).pack(pady=20)
-            tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=20)
+            tk.Button(self.root, text="Ver Frequência do Filho(a)", command=lambda: self.ver_frequencia(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Ver Notas do Filho(a)", command=lambda: self.ver_notas(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Ver Localização do Ônibus Escolar", command=lambda: self.ver_onibus(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Contactar Professor(a)", command=lambda: self.contato_professor(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Contactar Professor(a)", command=lambda: self.contato_professor(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Pagar Mensalidade", command=lambda: self.pagar(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Voltar", command=self.menu_responsavel).pack(pady=20)
     
     def acoes_aluno(self, matricula):
             self.clear_window()
             tk.Button(self.root, text="Ver Frequência do aluno(a)", command=lambda: self.ver_frequencia(matricula)).pack(pady=20)
             tk.Button(self.root, text="Ver Notas do aluno(a)", command=lambda: self.ver_notas(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Ver Materiais Cadastrados", command=lambda: self.ver_materiais(matricula)).pack(pady=20)
             tk.Button(self.root, text="Se inscrever em Atividades Extra-Curriculares", command=lambda: self.inscrever_atvextra(matricula)).pack(pady=20)
-            tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=20)
+            tk.Button(self.root, text="Voltar", command=self.menu_aluno).pack(pady=20)
+    
+    def acoes_professor(self, matricula):
+            self.clear_window()
+            tk.Button(self.root, text="Cadastrar Avaliação", command=lambda: self.cadastrar_prova(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Cadastrar Notas", command=lambda: self.cadastrar_nota(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Cadastrar Disciplina e Horário", command=lambda: self.cadastrar_aulas(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Cadastrar Frequência", command=lambda: self.cadastrar_frequencia(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Cadastrar Material", command=lambda: self.cadastrar_material(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Ver Mensagens dos Responsáveis", command=lambda: self.ver_mensagem(matricula)).pack(pady=20)
+            tk.Button(self.root, text="Voltar", command=self.menu_professor).pack(pady=20)
 
+    def acoes_funcionario(self, matricula):
+        self.clear_window()
+        tk.Button(self.root, text="Ver alunos Inscritos nas Atividades Extra-Curriculares", command=lambda: self.ver_inscriatvextra(matricula)).pack(pady=20)
+        tk.Button(self.root, text="Ver Pagamento das Mensalidades", command=lambda: self.ver_pagamento(matricula)).pack(pady=20)
+        tk.Button(self.root, text="Cadastrar Atividades Extra-Curriculares", command=lambda: self.cadastrar_atividadeextra(matricula)).pack(pady=20)
+        tk.Button(self.root, text="Voltar", command=self.menu_funcionario).pack(pady=20)
+
+    def ver_onibus(self, matricula):
+        def atualizar():
+            lat = random.uniform(-90, 90)
+            lon = random.uniform(-180, 180)
+            rua = random.choice(["Rua das Flores", "Avenida Brasil", "Rua dos Ipês", "Rua das Acácias", "Rua do Sol", "Praça Central", "Avenida General Vilares","Cruzamento Santa Maria","Praça Dom Barbosa"])
+            horario = time.strftime("%H:%M:%S")
+            info.config(text=f"Lat: {lat:.6f}\nLon: {lon:.6f}\nHora: {horario}\nLocalização: {rua}")
+            root.after(5000, atualizar)
+        
+        root = tk.Tk()
+        root.title("Rastreamento do Ônibus Escolar")
+        info = tk.Label(root, font=("Arial", 14))
+        info.pack(pady=20)
+    
+        atualizar()
+        root.mainloop()
+        
+    def ver_mensagem(self, matricula):
+            self.clear_window()
+            arquivos = {'mensagem': "mensagens.txt"}
+            arquivo = os.path.join(self.pasta_dados, arquivos['mensagem'])
+        
+            texto = tk.Text(self.root, wrap=tk.WORD, height=20, width=50)
+            texto.pack(pady=10)
+            
+            try: #tratamento de exceções para verificar se o arquivo de mensagem existe no diretorio
+                if os.path.exists(arquivo):
+                    with open(arquivo, 'r') as f:
+                        conteudo = f.read()
+                        texto.insert(tk.END, conteudo)
+            except OSError:
+                messagebox.showwarning("Erro", f"Não foi possível acessar esse arquivo, verifique se existe no diretório!")
+
+            tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=20)
 
     def ver_frequencia(self, matricula):
             self.clear_window()
@@ -159,6 +222,136 @@ class SAS:
                 messagebox.showwarning("Erro", f"Não foi possível acessar esse arquivo, verifique se existe no diretório!")
 
             tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=20)
+    
+    def ver_pagamento(self, matricula):
+            self.clear_window()
+            arquivos = {'pagamento': "pagamentos.txt"}
+            arquivo = os.path.join(self.pasta_dados, arquivos['pagamento'])
+        
+            texto = tk.Text(self.root, wrap=tk.WORD, height=20, width=50)
+            texto.pack(pady=10)
+            
+            try: #tratamento de exceções para verificar se o arquivo de pagamento existe no diretorio
+                if os.path.exists(arquivo):
+                    with open(arquivo, 'r') as f:
+                        conteudo = f.read()
+                        texto.insert(tk.END, conteudo)
+            except OSError:
+                messagebox.showwarning("Erro", f"Não foi possível acessar esse arquivo, verifique se existe no diretório!")
+
+            tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=20)
+
+    def ver_materiais(self, matricula):
+            self.clear_window()
+            arquivos = {'material': "material.txt"}
+            arquivo = os.path.join(self.pasta_dados, arquivos['material'])
+        
+            texto = tk.Text(self.root, wrap=tk.WORD, height=20, width=50)
+            texto.pack(pady=10)
+            
+            try: #tratamento de exceções para verificar se o arquivo de material existe no diretorio
+                if os.path.exists(arquivo):
+                    with open(arquivo, 'r') as f:
+                        conteudo = f.read()
+                        texto.insert(tk.END, conteudo)
+            except OSError:
+                messagebox.showwarning("Erro", f"Não foi possível acessar esse arquivo, verifique se existe no diretório!")
+
+            tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=20)
+
+    def pagar(self, matricula):
+        self.clear_window()
+        arquivos = {'aluno': "alunos.txt"}
+        arquivo = os.path.join(self.pasta_dados, arquivos['aluno'])
+        
+        texto = tk.Text(self.root, wrap=tk.WORD, height=15, width=35)
+        texto.pack(pady=10)
+
+        try: #tratamento de exceção para verificar se o arquivo alunos.txt existe no diretorio
+            if os.path.exists(arquivo):
+                with open(arquivo, 'r') as f:
+                    conteudo = f.read()
+                    texto.insert(tk.END, conteudo)
+        except OSError:
+            messagebox.showwarning("Erro", f"Não foi possível acessar o arquivo, verifique se existe no diretório!")
+            
+
+        tk.Label(self.root, text=f"Dados Bancários\nBanco: Caixa Econômica Federal\nAgência: 1523\nConta Corrente: 56789-0\nTitular: System Administration School\nCPF: 123.456.789-00").pack(pady=10)
+
+        tk.Label(self.root, text=f"Digite a matrícula do seu filho(a):").pack(pady=10)
+        matalu_entry = tk.Entry(self.root)
+        matalu_entry.pack(pady=5)
+
+        tk.Label(self.root, text=f"Digite o data de hoje:\nExemplo: 08/07/2024").pack(pady=10)
+        dia_entry = tk.Entry(self.root)
+        dia_entry.pack(pady=5)
+
+        tk.Label(self.root, text=f"Digite PAGO ao término do pagamento:\nCaso não tenha conseguido efetuar o pagamento, digite PENDENTE:").pack(pady=20)
+        mensagem_entry = tk.Entry(self.root)
+        mensagem_entry.pack(pady=5)
+
+        def salvar_pagar():
+            matalu = matalu_entry.get()
+            dia = dia_entry.get()
+            mensagem = mensagem_entry.get()
+        
+            arquivo_contato = os.path.join(self.pasta_dados, "pagamentos.txt")
+            
+            try: #tratamento de exceções para salvar informações sobre os pagamentos
+                with open(arquivo_contato, 'a') as f:
+                    f.write(f"Responsável: {matricula} | Aluno(a): {matalu}\nPagamento feito no dia: {dia}\nStatus: {mensagem}\n\n")
+                messagebox.showinfo("Pagamento cadastrada com sucesso!")
+            except OSError:
+                 messagebox.showwarning("Erro", f"Não foi possível salvar as informações nesse arquivo, verifique se existe no diretório!")
+
+        tk.Button(self.root, text="Salvar", command=salvar_pagar).pack(pady=10)
+        tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=10)
+
+
+    def contato_professor(self, matricula):
+        self.clear_window()
+        arquivos = {'professor': "professores.txt"}
+        arquivo = os.path.join(self.pasta_dados, arquivos['professor'])
+        
+        texto = tk.Text(self.root, wrap=tk.WORD, height=20, width=50)
+        texto.pack(pady=10)
+
+        try: #tratamento de exceção para verificar se o arquivo professores.txt existe no diretorio
+            if os.path.exists(arquivo):
+                with open(arquivo, 'r') as f:
+                    conteudo = f.read()
+                    texto.insert(tk.END, conteudo)
+        except OSError:
+            messagebox.showwarning("Erro", f"Não foi possível acessar o arquivo, verifique se existe no diretório!")
+            
+        tk.Label(self.root, text=f"Digite a matrícula do professor(a) que você deseja entrar em contato:").pack(pady=20)
+        matprof_entry = tk.Entry(self.root)
+        matprof_entry.pack(pady=5)
+
+        tk.Label(self.root, text=f"Digite o data de hoje:\nExemplo: 08/07/2024").pack(pady=20)
+        dia_entry = tk.Entry(self.root)
+        dia_entry.pack(pady=5)
+
+        tk.Label(self.root, text=f"Digite o mensagem que você quer deixar para o professor(a):").pack(pady=20)
+        mensagem_entry = tk.Entry(self.root)
+        mensagem_entry.pack(pady=5)
+
+        def salvar_contato():
+            matprof = matprof_entry.get()
+            dia = dia_entry.get()
+            mensagem = mensagem_entry.get()
+        
+            arquivo_contato = os.path.join(self.pasta_dados, "mensagens.txt")
+            
+            try: #tratamento de exceções para salvar informações sobre as provas
+                with open(arquivo_contato, 'a') as f:
+                    f.write(f"Do Responsável: {matricula} | Para o Professor: {matprof}\nMensagem enviada no dia: {dia}\nMensagem: {mensagem}\n\n")
+                messagebox.showinfo("Mensagem cadastrada com sucesso!")
+            except OSError:
+                 messagebox.showwarning("Erro", f"Não foi possível salvar as informações nesse arquivo, verifique se existe no diretório!")
+
+        tk.Button(self.root, text="Salvar", command=salvar_contato).pack(pady=10)
+        tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=10)
 
     def inscrever_atvextra(self, matricula):
             self.clear_window()
@@ -194,14 +387,6 @@ class SAS:
             tk.Button(self.root, text="Salvar", command=salvar_atvextra).pack(pady=10)
             tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=10)
 
-    def acoes_professor(self, matricula):
-            self.clear_window()
-            tk.Button(self.root, text="Cadastrar Avaliação", command=lambda: self.cadastrar_prova(matricula)).pack(pady=20)
-            tk.Button(self.root, text="Cadastrar Notas", command=lambda: self.cadastrar_nota(matricula)).pack(pady=20)
-            tk.Button(self.root, text="Cadastrar Disciplina e Horário", command=lambda: self.cadastrar_aulas(matricula)).pack(pady=20)
-            tk.Button(self.root, text="Cadastrar Frequência", command=lambda: self.cadastrar_frequencia(matricula)).pack(pady=20)
-            tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=20)
-
     def cadastrar_prova(self, matricula):
         self.clear_window()
         tk.Label(self.root, text=f"Digite o nome da sua disciplina:\nExemplo: Cálculo 1").pack(pady=20)
@@ -224,14 +409,15 @@ class SAS:
             
             try: #tratamento de exceções para salvar informações sobre as provas
                 with open(arquivo_aulas, 'a') as f:
-                    f.write(f"Professor(a): {matricula} | Disciplina: {disciplinaprova}\nDia da Avaliação: {diaprova} | Horário da Avaliação: {horarioprova}\n")
+                    f.write(f"Professor(a): {matricula} | Disciplina: {disciplinaprova}\nDia da Avaliação: {diaprova} | Horário da Avaliação: {horarioprova}\n\n")
                 messagebox.showinfo("Avaliação cadastrada com sucesso!")
             except OSError:
                  messagebox.showwarning("Erro", f"Não foi possível salvar as informações nesse arquivo, verifique se existe no diretório!")
 
         tk.Button(self.root, text="Salvar", command=salvar_avaliacoes).pack(pady=10)
         tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=10)
-    
+
+        
     def cadastrar_nota(self, matricula):
         self.clear_window()
         arquivos = {'aluno': "alunos.txt"}
@@ -293,7 +479,6 @@ class SAS:
             except OSError:
                 messagebox.showwarning("Erro", f"Não foi possível salvar as informações nesse arquivo, verifique se existe no diretório!")
 
-
         tk.Button(self.root, text="Salvar", command=salvar_aulas).pack(pady=10)
         tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=10)
 
@@ -341,12 +526,36 @@ class SAS:
         tk.Button(self.root, text="Salvar", command=salvar_frequencia).pack(pady=10)
         tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=10)
 
-
-    def acoes_funcionario(self, matricula):
+    def cadastrar_material(self, matricula):
         self.clear_window()
-        tk.Button(self.root, text="Ver alunos Inscritos nas Atividades Extra-Curriculares", command=lambda: self.ver_inscriatvextra(matricula)).pack(pady=20)
-        tk.Button(self.root, text="Cadastrar Atividades Extra-Curriculares", command=lambda: self.cadastrar_atividadeextra(matricula)).pack(pady=20)
-        tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=20)
+
+        tk.Label(self.root, text=f"Digite a data de hoje:\nExemplo: 10/07/2024").pack(pady=20)
+        dia_entry = tk.Entry(self.root)
+        dia_entry.pack(pady=5)
+
+        tk.Label(self.root, text=f"Digite o nome da sua disciplina:\nExemplo: Cálculo 1").pack(pady=20)
+        disciplina_entry = tk.Entry(self.root)
+        disciplina_entry.pack(pady=5)
+
+        tk.Label(self.root, text=f"Digite o nome dos materiais, leituras ou links que você deseja cadastrar:").pack(pady=20)
+        material_entry = tk.Entry(self.root)
+        material_entry.pack(pady=5)
+
+        def salvar_material():
+            dia = dia_entry.get()
+            disciplina = disciplina_entry.get()
+            material = material_entry.get()
+            arquivo_material = os.path.join(self.pasta_dados, "material.txt")
+            
+            try: #tratamento de exceção para frequencia dos alunos
+                with open(arquivo_material, 'a') as f:
+                    f.write(f"Professor(a): {matricula} | Disciplina: {disciplina} | Data: {dia}\nMateriais Cadastrados: {material}\n\n")
+                messagebox.showinfo("Material cadastrada com sucesso!")
+            except OSError:
+                messagebox.showwarning("Erro", f"Não foi possível salvar as informações nesse arquivo, verifique se existe no diretório!")
+
+        tk.Button(self.root, text="Salvar", command=salvar_material).pack(pady=10)
+        tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=10)
 
     def ver_inscriatvextra(self, matricula):
             self.clear_window()
@@ -440,7 +649,15 @@ class SAS:
                 messagebox.showwarning("Erro", f"Não foi possível salvar as informações nesse arquivo, verifique se existe no diretório!")
 
         tk.Button(self.root, text="Salvar", command=salvar_cadastro).pack(pady=10)
-        tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=10)
+        
+        if tipo == 'aluno':
+            tk.Button(self.root, text="Voltar", command=self.menu_aluno).pack(pady=10)
+        elif tipo == 'professor':
+             tk.Button(self.root, text="Voltar", command=self.menu_professor).pack(pady=10)
+        elif tipo == 'responsavel':
+             tk.Button(self.root, text="Voltar", command=self.menu_responsavel).pack(pady=10)
+        elif tipo == 'funcionario':
+             tk.Button(self.root, text="Voltar", command=self.menu_funcionario).pack(pady=10)
 
     def run(self):
         self.root.mainloop()
