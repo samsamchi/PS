@@ -1,4 +1,15 @@
 Funcionário(a): 6020 | Atividade: Xadrez
 Horário da atividade: 15:30-16:30
+
 Funcionário(a): 6020 | Atividade: Futebol
 Horário da atividade: 10:30-11:30
+
+Funcionário(a): 9728 | Atividade: Vôlei
+Horário da atividade: 10:30-12:00
+
+Funcionário(a): 9728 | Atividade: Culinária Regional
+Horário da atividade: 07:30-09:30
+
+Funcionário(a): 9728 | Atividade: Etiqueta
+Horário da atividade: 08:30-09:30
+
