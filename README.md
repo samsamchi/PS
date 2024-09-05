@@ -5,7 +5,23 @@
 # Pré-requisitos
 
 - Python 3 ou superior
-- Biblioteca Tkinter 
+- Biblioteca Tkinter
+- 
+- 1. Clone este repositório para o seu computador:
+    
+    ```
+    
+    git clone https://github.com/seu_usuario/seu_projeto.git
+    
+    ```
+    
+2. Navegue até o diretório do projeto:
+    
+    ```
+    
+    cd seu_projeto
+    
+    ```
 
 # Instruções para Executar
 
