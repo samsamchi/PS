@@ -4,7 +4,6 @@
 
 # Pré-requisitos
 
-- Certifique-se de ter os seguintes pré-requisitos instalados antes de executar o projeto:
 - Python 3 ou superior
 - Biblioteca Tkinter 
 
