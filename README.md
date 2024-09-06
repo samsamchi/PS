@@ -6,7 +6,7 @@
 
 - Python 3.x.x;
 - Biblioteca Tkinter.
-- 
+  
 # Instruções para Executar
 
 - Clone este repositório para o seu computador:
