@@ -1,39 +1,59 @@
 # Projetos de Software
 
-- Este projeto é uma aplicação Python que utiliza a biblioteca Tkinter para a interface gráfica.
+- Este é um projeto feito em Python que utiliza a biblioteca Tkinter para a interface gráfica, além de implementar 10 funcionalidades requisitadas pela disciplina, junto com a aplicação dos conceitos de POO.
 
 # Pré-requisitos
 
-- Python 3 ou superior
-- Biblioteca Tkinter
+- Python 3.x.x;
+- Biblioteca Tkinter.
 - 
-- 1. Clone este repositório para o seu computador:
-    
+# Instruções para Executar
+
+- Clone este repositório para o seu computador:
+
     ```
     
     git clone https://github.com/seu_usuario/seu_projeto.git
     
     ```
-    
-2. Navegue até o diretório do projeto:
-    
+
+- Navegue até o diretório do projeto:
+
     ```
     
     cd seu_projeto
     
     ```
+    
+-  Verifique se o Tkinter está instalado:
+  
+      ```
+    
+    python -m tkinter
+    
+    ```
 
-# Instruções para Executar
+- Se o Tkinter não estiver instalado, você pode precisar instalá-lo usando o gerenciador de pacotes do Python (pip):
 
-- Clone este repositório para o seu computador:
-git clone https://github.com/seu_usuario/seu_projeto.git
+    ```
+    
+    python -m pip install tk
+    
+    ```
 
-- Navegue até o diretório do projeto:
-cd nome_do_projeto
+- Caminho do código:
 
-- Execute o projeto::
-python main.py
+No código, o projeto utiliza o caminho específico do meu sistema: c:/Users/cicer/Downloads/ps3/ps3. Se você precisar ajustar este caminho para o seu sistema, abra o arquivo main.py ou qualquer outro arquivo de configuração que dependa desse caminho e modifique o caminho para corresponder ao seu ambiente.
 
-- Nota: Certifique-se de estar no diretório correto antes de rodar o comando acima.
+- Execução do projeto:
+
+    ```
+    
+   python main.py
+    
+    ```
+
+
+  
 
 
