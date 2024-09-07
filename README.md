@@ -13,7 +13,7 @@
 
     ```
     
-    git clone https://github.com/seu_usuario/seu_projeto.git
+    git clone https://github.com/samsamchi/PS.git
     
     ```
 
@@ -21,7 +21,7 @@
 
     ```
     
-    cd seu_projeto
+    cd PS
     
     ```
     
