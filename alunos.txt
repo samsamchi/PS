@@ -5,3 +5,4 @@
 1119,Júlio Carpacho,31 anos,M,Não possuo observações médicas.
 2006,Arthur Pereira,24 anos,M,Não possuo observações médicas.
 6593,Robson de Paula,21 anos,M,Não possuo observações médicas.
+4739,João Gomes,23 anos,M,Sinusite

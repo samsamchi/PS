@@ -4,7 +4,7 @@ import os
 import time
 import random
 
-# Classe base SAS encapsula a lógica geral do sistema
+# Super classe SAS contém a lógica geral do sistema
 class SAS:
     def __init__(self):
         self.root = tk.Tk()
@@ -675,7 +675,7 @@ class SAS:
 
 # Subclasse específica para o menu de Aluno
 class MenuAluno(SAS): # Herança
-    def menu_aluno(self): # Polimorfismo (sobrescrevendo método da classe base)
+    def menu_aluno(self): # Polimorfismo
         self.clear_window()
         tk.Label(self.root, text="Seja bem-vindo, Aluno(a)!").pack(pady=20)
         tk.Button(self.root, text="Já possuo cadastro", command=lambda: self.cadastro_existente('aluno')).pack(pady=10)
@@ -684,7 +684,7 @@ class MenuAluno(SAS): # Herança
 
 # Subclasse específica para o menu de Professor
 class MenuProfessor(SAS): # Herança
-    def menu_professor(self): # Polimorfismo (sobrescrevendo método da classe base)
+    def menu_professor(self): # Polimorfismo 
         self.clear_window()
         tk.Label(self.root, text="Seja bem-vindo, Professor(a)!").pack(pady=20)
         tk.Button(self.root, text="Já possuo cadastro", command=lambda: self.cadastro_existente('professor')).pack(pady=10)
@@ -693,7 +693,7 @@ class MenuProfessor(SAS): # Herança
 
 # Subclasse específica para o menu de Funcionário
 class MenuFuncionario(SAS): # Herança
-    def menu_funcionario(self): # Polimorfismo (sobrescrevendo método da classe base)
+    def menu_funcionario(self): # Polimorfismo
         self.clear_window()
         tk.Label(self.root, text="Seja bem-vindo, Funcionário(a)!").pack(pady=20)
         tk.Button(self.root, text="Já possuo cadastro", command=lambda: self.cadastro_existente('funcionario')).pack(pady=10)
@@ -702,13 +702,13 @@ class MenuFuncionario(SAS): # Herança
 
 # Subclasse específica para o menu de Responsável
 class MenuResponsavel(SAS): # Herança
-    def menu_responsavel(self): # Polimorfismo (sobrescrevendo método da classe base)
+    def menu_responsavel(self): # Polimorfismo 
         self.clear_window()
         tk.Label(self.root, text="Seja bem-vindo, Responsável!").pack(pady=20)
         tk.Button(self.root, text="Já possuo cadastro", command=lambda: self.cadastro_existente('responsavel')).pack(pady=10)
         tk.Button(self.root, text="Novo cadastro", command=lambda: self.novo_cadastro('responsavel')).pack(pady=10)
         tk.Button(self.root, text="Voltar", command=self.create_main_menu).pack(pady=10)
 
-# Executando o sistema
+# Executa o sistema
 sistema = SAS()
 sistema.run()
