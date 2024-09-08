@@ -1,23 +1,59 @@
 # Projetos de Software
 
-Funcionalidades do projeto:
-- 
-- Student Enrollment: Management of student enrollment and personal details;
+- Este é um projeto feito em Python que utiliza a biblioteca Tkinter para a interface gráfica, além de implementar 10 funcionalidades requisitadas pela disciplina, junto com a aplicação dos conceitos de POO.
 
-- Class and Timetable Management: Creation and management of class schedules;
+# Pré-requisitos
 
-- Attendance Tracking: Recording and monitoring student attendance;
+- Python 3.x.x;
+- Biblioteca Tkinter.
+  
+# Instruções para Executar
 
-- Examination Management: Scheduling and managing examinations;
+- Clone este repositório para o seu computador:
 
-- Gradebook Management: Recording and calculating student grades;
+    ```
+    
+    git clone https://github.com/samsamchi/PS.git
+    
+    ```
 
-- Course Material Distribution: Distribution of course materials to students;
+- Navegue até o diretório do projeto:
 
-- Extra-Curricular Activities Management: Managing student participation in extra-curricular activities.
+    ```
+    
+    cd PS
+    
+    ```
+    
+-  Verifique se o Tkinter está instalado:
+  
+      ```
+    
+    python -m tkinter
+    
+    ```
 
-- Parent Portal: A portal for parents to monitor student progress and communicate with teachers;
+- Se o Tkinter não estiver instalado, você pode precisar instalá-lo usando o gerenciador de pacotes do Python (pip):
 
-- Fee and Payment Processing: Handling of tuition and other fee payments;
+    ```
+    
+    python -m pip install tk
+    
+    ```
 
-- School Bus Tracking: Real-time tracking of school bus locations.
+- Caminho do código:
+
+No código, o projeto utiliza o caminho específico do meu sistema: c:/Users/cicer/Downloads/ps3/ps3. Se você precisar ajustar este caminho para o seu sistema, abra o arquivo main.py ou qualquer outro arquivo de configuração que dependa desse caminho e modifique o caminho para corresponder ao seu ambiente.
+
+- Execução do projeto:
+
+    ```
+    
+   python main.py
+    
+    ```
+
+
+  
+
+
