@@ -6,16 +6,16 @@
 
 # Aplicação dos Padrões de Projeto (Design Patterns) no código
 
-- Singleton:
+ # Singleton:
 - A classe SAS possui um atributo de classe _instance que será usado para armazenar a única instância da classe.
 - O método __new__ é sobrescrito para verificar se já existe uma instância. Se não existir, cria uma nova; se já existir, retorna a instância existente.
 
-- Strategy:
+ # Strategy:
 - Existem três classes de estratégia: SalvarNota , SalvarPagamento e SalvarFolhaPagamento.
 - Cada uma dessas classes tem um método salvar, que lida com um tipo específico de dados (nota, pagamento, folha de pagamento). No método salvar , cada classe manipula os dados de forma específica e salva  os dados no arquivo correspondente.
 - A classe SAS tem o método set_estrategia para configurar qual estratégia será usada no momento da execução (por exemplo, salvar uma nota, um pagamento ou uma folha de pagamento).
 
-- Template Method:
+ # Template Method:
 - A classe GerenciadorArquivo define dois métodos principais: manipular_arquivo (para ler o conteúdo de um arquivo) e salvar_arquivo (para salvar conteúdo no arquivo).
 - Os dois métodos fornecem uma estrutura comum para ler e escrever arquivos, mas os dados que são manipulados no arquivo dependem da estratégia utilizada (nota, pagamento, folha de pagamento).
 
