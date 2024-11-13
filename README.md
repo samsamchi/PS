@@ -1,6 +1,8 @@
 # Projetos de Software
 
 - Este é um projeto feito em Python que utiliza a biblioteca Tkinter para a interface gráfica, além de implementar 10 funcionalidades requisitadas pela disciplina, junto com a aplicação dos conceitos de POO.
+- O padrões de projetos usados foram: Singleton, Strategy, Template Method.
+- O arquivo "sas_ds.py" é o arquivo que contém o código com os padrões de projetos. Para executar basta mudar apenas o nome, conforme explico logo abaixo.
 
 # Pré-requisitos
 
@@ -49,7 +51,7 @@
 
     ```
     
-   python main.py
+   python3 c:/Users/cicer/Downloads/ps3/ps3/sas_ds.py
     
     ```
 
