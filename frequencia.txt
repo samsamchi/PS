@@ -7,3 +7,6 @@ Aluno(a): 2006 | Número de Faltas: 1
 Professor(a): 1631 | Data: 02/05/2020
 Aluno(a): 1119 | Número de Faltas: 4
 
+Professor(a): 1964 | Data: 10/11/2024
+Aluno(a): 5255 | Número de Faltas: 8
+
