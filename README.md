@@ -51,6 +51,13 @@
 
     ```
     
+   python3 c:/Users/cicer/Downloads/ps3/ps3/sas.py
+    
+    ```
+- Execução do projeto (com Padrões de Projeto):
+
+    ```
+    
    python3 c:/Users/cicer/Downloads/ps3/ps3/sas_ds.py
     
     ```
